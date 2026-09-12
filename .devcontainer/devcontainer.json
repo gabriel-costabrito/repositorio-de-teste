@@ -1,0 +1,26 @@
+// .devcontainer/devcontainer.json
+{
+  // Nome do devcontainer explicito no Github
+  "name": "TypeScript & Node.js",
+  // Endereço da imagem de container a ser utilizada, que nesse caso instala o Node.js junto com o pacote do typescript
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
+  
+  // Configurações direto no IDE, que nesse caso é o VsCode
+  "customizations": {
+    "vscode": {
+      "extensions": [ // Extensões de formatação, highlighting e identificação de erros de código 
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode" // 
+      ],
+      "settings": { // Formata o código sempre que o arquivo é salvado
+        "editor.formatOnSave": true
+      }
+    }
+  },
+
+  "forwardPorts": [3000], // Se o projeto criar uma porta localmente, será a 3000 por padrão
+
+  "postCreateCommand": "npm install", // Comando executado após a instalação da imagem de container do Node.js e typescript
+
+  "remoteUser": "node" // Usuário que executará as ações e comandos no container
+}
